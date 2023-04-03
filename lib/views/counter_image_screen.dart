@@ -10,15 +10,13 @@ class CounterImageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Counter Image Screen"),
+        title: const Text("Counter Image Screen"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 400,
-            width: 430,
-            child: BlocBuilder<ImageBloc, ImageState>(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BlocBuilder<ImageBloc, ImageState>(
               builder: (context, state) {
                 if (state is ImageLoadingState) {
                   return const CircularProgressIndicator();
@@ -30,7 +28,11 @@ class CounterImageScreen extends StatelessWidget {
                       if (frame == null) {
                         return const CircularProgressIndicator();
                       } else {
-                        return image;
+                        return SizedBox(
+                          height: 400,
+                          width: 430,
+                          child: image,
+                        );
                       }
                     },
                     fit: BoxFit.fill,
@@ -40,8 +42,8 @@ class CounterImageScreen extends StatelessWidget {
                 }
               },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
