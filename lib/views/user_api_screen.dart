@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:repository_example/bloc/user_bloc_1.dart';
+import 'package:repository_example/bloc/user_bloc.dart';
 
 class UserApiScreen extends StatelessWidget {
   const UserApiScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class UserApiScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "User Api Screen 1",
+          "User Api Screen",
         ),
       ),
       body: BlocBuilder<UserBloc, UserState>(

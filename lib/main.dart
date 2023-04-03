@@ -13,6 +13,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
+
+        // User Repository and Sample Data Repository (MultiRepositoryProvider or MultiRepositoryProvider)
+        /*
+        //MultiBlocProvider(
+        MultiRepositoryProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => SampleDataBloc()..add(SampleDataInitialEvent()),
+        ),
+        BlocProvider(
+          create: (context) => UserBloc()..add(UserInitialEvent()),
+        )
+      ],
+      child: MaterialApp(
+        title: 'Repository Provider',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const UserSampleDataScreen(),
+      ),
+    );*/
+
         // Sample Data Repository
         BlocProvider(
       create: (context) => SampleDataBloc()..add(SampleDataInitialEvent()),

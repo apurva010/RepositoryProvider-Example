@@ -10,7 +10,7 @@ class SampleDataScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "User Api Screen",
+          "Sample Data Screen",
         ),
       ),
       body: BlocBuilder<SampleDataBloc, SampleDataState>(
