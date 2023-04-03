@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:repository_example/cubit/user_cubit.dart';
-import 'package:repository_example/views/user_cubit_example_screen.dart';
+import 'package:repository_example/bloc/img_bloc.dart';
+import 'package:repository_example/views/counter_image_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +14,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return
 
-        //Cubit Example
+        // Image Counter Example
         BlocProvider(
+      create: (context) => ImageBloc()..add(ImageInitialEvent()),
+      child: MaterialApp(
+        title: 'Repository Provider',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const CounterImageScreen(),
+      ),
+    );
+
+    //Cubit Example
+    /*BlocProvider(
       create: (context) => UserCubit(),
       child: MaterialApp(
         title: 'Repository Provider with Cubit',
@@ -24,7 +36,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const UserCubitExampleScreen(),
       ),
-    );
+    );*/
 
     // User Repository and Sample Data Repository (MultiRepositoryProvider or MultiRepositoryProvider)
     /*

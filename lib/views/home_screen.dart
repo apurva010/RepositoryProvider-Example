@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:repository_example/bloc/bloc_repo.dart';
+import 'package:repository_example/bloc/img_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,11 +17,11 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            BlocBuilder<BlocRepo, ImageState>(
+            BlocBuilder<ImageBloc, ImageState>(
               builder: (context, state) {
-                if (state is LoadingState) {
+                if (state is ImageLoadingState) {
                   return const CircularProgressIndicator();
-                } else if (state is LoadedState) {
+                } else if (state is ImageLoadedState) {
                   return SizedBox(
                     height: 350,
                     width: 500,
@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                BlocProvider.of<BlocRepo>(context).add(LoadEvent());
+                BlocProvider.of<ImageBloc>(context).add(ImageLoadEvent());
               },
               child: const Text(
                 "Get Image",
