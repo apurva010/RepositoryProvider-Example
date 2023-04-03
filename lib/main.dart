@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:repository_example/bloc/sample_data_bloc.dart';
-import 'package:repository_example/views/sample_data_screen.dart';
+import 'package:repository_example/cubit/user_cubit.dart';
+import 'package:repository_example/views/user_cubit_example_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +14,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return
 
-        // User Repository and Sample Data Repository (MultiRepositoryProvider or MultiRepositoryProvider)
-        /*
+        //Cubit Example
+        BlocProvider(
+      create: (context) => UserCubit(),
+      child: MaterialApp(
+        title: 'Repository Provider with Cubit',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const UserCubitExampleScreen(),
+      ),
+    );
+
+    // User Repository and Sample Data Repository (MultiRepositoryProvider or MultiRepositoryProvider)
+    /*
         //MultiBlocProvider(
         MultiRepositoryProvider(
       providers: [
@@ -35,8 +47,8 @@ class MyApp extends StatelessWidget {
       ),
     );*/
 
-        // Sample Data Repository
-        BlocProvider(
+    // Sample Data Repository
+    /* BlocProvider(
       create: (context) => SampleDataBloc()..add(SampleDataInitialEvent()),
       child: MaterialApp(
         title: 'Repository Provider',
@@ -45,7 +57,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const SampleDataScreen(),
       ),
-    );
+    );*/
 
     // Simple Image Repository
     /*BlocProvider(
